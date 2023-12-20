@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Customer Management</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <!--Site CSS-->
+  <link rel="stylesheet" href="css/style.css">
+  <!--Chart Js-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Start your project here-->
+
+  <!-- Navbar -->
+  <div class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <!-- Container wrapper -->
+      <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand me-2" href="#">
+          <img src="img/logo.png" height="50" alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+        </a>
+        <!-- Toggle button -->
+        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"
+          aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+          <!-- Left links -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link navtext" href="index.html">Deshbord</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navtext" href="statistics.html">Statistics</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+          <div class="d-flex align-items-center">
+            <button data-mdb-ripple-init type="button" class="btn btn-warning me-3">
+              <i class="fa-solid fa-plus"></i>
+              Employee
+            </button>
+            <a class="btn text-white btn-primary" data-mdb-ripple-init href="#!" role="button">
+              <i class="fa-solid fa-plus"></i>
+              Customer
+            </a>
+          </div>
+        </div>
+        <!-- Collapsible wrapper -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+  </div>
+  <!-- Navbar -->
+
+  <!--Deshbord Title-->
+  <div class="container pt-4">
+    <div class="row">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <i class="fa-solid fa-chart-line fa-lg"></i>
+        </li>
+        <li class="list-inline-item">
+          <h4>Dashboard</h4>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--Deshbord Title End-->
+
+  <!--site details-->
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-sm-3 pt-1">
+        <div class="box border rounded p-3 d-flex justify-content-between shadow-3" style="background-color: #B39DDB;">
+          <div class="icon pt-2">
+            <i class="fa-solid fa-user-tie fa-2x"></i>
+          </div>
+          <div class="titleName text-center">
+            <span>10</span>
+            <h5 class="m-0">Employees</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 pt-1">
+        <div class="box border rounded p-3 d-flex justify-content-between shadow-3" style="background-color: #7986CB;">
+          <div class="icon pt-2">
+            <i class="fa-solid fa-users fa-2x"></i>
+          </div>
+          <div class="titleName text-center">
+            <span>250</span>
+            <h5 class="m-0">Customers</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 pt-1">
+        <div class="box border rounded p-3 d-flex justify-content-between shadow-3" style="background-color: #64B5F6;">
+          <div class="icon pt-2">
+            <i class="fa-solid fa-hand-holding-dollar fa-2x"></i>
+          </div>
+          <div class="titleName text-center">
+            <span>$11,000</span>
+            <h5 class="m-0">Yearly Profit</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 pt-1">
+        <div class="box border rounded p-3 d-flex justify-content-between shadow-3" style="background-color: #80CBC4;">
+          <div class="icon pt-2">
+            <i class="fa-solid fa-file-invoice-dollar fa-2x"></i>
+          </div>
+          <div class="titleName text-center">
+            <span>$510</span>
+            <h5 class="m-0">Monthly Profit</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--site details End-->
+
+  <!--Profit monthly Chart-->
+  <div class="container pb-5">
+    <div class="row">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <!--Profit monthly Chart End-->
+
+  <!--New Customers Titel-->
+  <div class="container pt-3 pb-3">
+    <div class="row p-2 border shadow-2 bg-light bg-gradient">
+      <div class="col-md-6">
+        <h5 class="m-0" style="padding-top: 6px;">Customers</h5>
+      </div>
+      <div class="col-md-6">
+        <div class="float-md-end float-lg-end float-xl-end float-xxl-end">
+          <div class="form-outline" data-mdb-input-init>
+            <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--New Customers Titel-->
+
+  <!--New Customer Details-->
+  <div class="container pb-4">
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table align-middle mb-0 bg-white">
+          <thead class="bg-light">
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Earn</th>
+              <th>Date</th>
+              <th>More Info</th>
+              <th>Renew Profit</th>
+              <th>E-Customer</th>
+              <th>R-Customer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">01856717748</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">150$</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">18-12-2023</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  More
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-mdb-ripple-init>Renew</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm" data-mdb-ripple-init>Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger btn-sm" data-mdb-ripple-init>Remove</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">Alex Ray</p>
+                    <p class="text-muted mb-0">alex.ray@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">01856717748</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">150$</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">18-12-2023</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  More
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-mdb-ripple-init>Renew</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm" data-mdb-ripple-init>Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger btn-sm" data-mdb-ripple-init>Remove</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">Kate Hunington</p>
+                    <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">01856717748</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">150$</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">18-12-2023</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  More
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-mdb-ripple-init>Renew</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm" data-mdb-ripple-init>Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger btn-sm" data-mdb-ripple-init>Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--New Customer Details End-->
+
+  <!--Pagination-->
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-md-6">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                2
+                <span class="visually-hidden">(current)</span>
+              </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!--Pagination End-->
+
+  <!--New Employees Titel-->
+  <div class="container pt-3 pb-3">
+    <div class="row p-2 border shadow-2 bg-light bg-gradient">
+      <div class="col-md-6">
+        <h5 class="m-0" style="padding-top: 6px;">Employees</h5>
+      </div>
+      <div class="col-md-6">
+        <div class="float-md-end float-lg-end float-xl-end float-xxl-end">
+          <div class="form-outline" data-mdb-input-init>
+            <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--New Employees Titel-->
+
+  <!--New Employees Details-->
+  <div class="container pb-4">
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table align-middle mb-0 bg-white">
+          <thead class="bg-light">
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Joining Date</th>
+              <th>Joining Time</th>
+              <th>Salary</th>
+              <th>Days Off</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>01856717333</td>
+              <td>
+                <p class="fw-normal mb-1">Software engineer</p>
+                <p class="text-muted mb-0">IT department</p>
+              </td>
+              <td>
+                <span class="badge badge-success rounded-pill d-inline">On-Work</span>
+              </td>
+              <td>20-12-2023</td>
+              <td>10:00 AM</td>
+              <td>$500</td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  6 Days
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link btn-sm btn-rounded">
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">Alex Ray</p>
+                    <p class="text-muted mb-0">alex.ray@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>01856717333</td>
+              <td>
+                <p class="fw-normal mb-1">Consultant</p>
+                <p class="text-muted mb-0">Finance</p>
+              </td>
+              <td>
+                <span class="badge badge-success rounded-pill d-inline">On-Work</span>
+              </td>
+              <td>20-12-2023</td>
+              <td>10:00 AM</td>
+              <td>$500</td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  10 Days
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">Kate Hunington</p>
+                    <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>01856717333</td>
+              <td>
+                <p class="fw-normal mb-1">Designer</p>
+                <p class="text-muted mb-0">UI/UX</p>
+              </td>
+              <td>
+                <span class="badge badge-danger rounded-pill d-inline">Off-Work</span>
+              </td>
+              <td>XX-XX-XXX</td>
+              <td>XX:XX XX</td>
+              <td>$500</td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  2 Days
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--New Employees Details End-->
+
+  <!--Employees Pagination-->
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-md-6">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                2
+                <span class="visually-hidden">(current)</span>
+              </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!--Employees Pagination End-->
+
+  <!--Footer Start-->
+  <div class="border-top">
+    <div class="container">
+      <div class="row">
+        <div class="info d-flex justify-content-between">
+          <div class="version">
+            <p class="m-0">Version : 0.01</p>
+          </div>
+          <div class="name">
+            <p class="m-0">Design and developed by : Sajid</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Footer End-->
+
+
+
+  <!-- End your project here-->
+
+  <!--Chart js-->
+  <script>
+    const ctx = document.getElementById('myChart');
+    const chartCanvas = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7', 'Day 8', 'Day 9', 'Day 10',
+          'Day 11', 'Day 12', 'Day 13', 'Day 14', 'Day 15', 'Day 16', 'Day 17', 'Day 18', 'Day 19', 'Day 20',
+          'Day 21', 'Day 22', 'Day 23', 'Day 24', 'Day 25', 'Day 26', 'Day 27', 'Day 28', 'Day 29', 'Day 30', 'Day 31'
+        ],
+        datasets: [{
+          label: '# This Month Profit $',
+          data: [550, 1119, 2000, 650, 350, 250, 3500, 4850, 7504],
+          borderWidth: 1,
+          backgroundColor: '#36A2EB', // corrected 'color' to 'backgroundColor'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+      }
+    });
+  </script>
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Customer Management</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!--Site CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--Chart Js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Start your project here-->
+
+    <!-- Navbar -->
+    <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <!-- Container wrapper -->
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="#">
+                    <img src="img/logo.png" height="50" alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+                </a>
+
+                <!-- Toggle button -->
+                <button data-mdb-collapse-init class="navbar-toggler" type="button"
+                    data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navtext" href="index.html">Deshbord</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navtext" href="statistics.html">Statistics</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                    <div class="d-flex align-items-center">
+                        <button data-mdb-ripple-init type="button" class="btn btn-warning me-3">
+                            <i class="fa-solid fa-plus"></i>
+                            Employee
+                        </button>
+                        <a class="btn text-white btn-primary" data-mdb-ripple-init href="#!" role="button">
+                            <i class="fa-solid fa-plus"></i>
+                            Customer
+                        </a>
+                    </div>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+    </div>
+    <!-- Navbar -->
+
+    <!--Deshbord Title-->
+    <div class="container pt-4">
+        <div class="row">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <i class="fa-solid fa-chart-column fa-lg"></i>
+                </li>
+                <li class="list-inline-item">
+                    <h4>STATISTICS</h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--Deshbord Title End-->
+
+    <!--Profit monthly Chart-->
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="yearChart"></canvas>
+
+            </div>
+            <div class="col-md-6">
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <!--Profit monthly Chart End-->
+
+    <!-- Profit Margin title-->
+    <div class="container pt-3 pb-3">
+        <div class="row p-2 border shadow-2 bg-light bg-gradient">
+            <div class="col-md-6">
+                <h5 class="m-0" style="padding-top: 6px;">Profit Margin</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="float-md-end float-lg-end float-xl-end float-xxl-end">
+                    <!-- Secondary -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-mdb-dropdown-init
+                            data-mdb-ripple-init aria-expanded="false">
+                            Year
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">2020</a></li>
+                            <li><a class="dropdown-item" href="#">2021</a></li>
+                            <li><a class="dropdown-item" href="#">2022</a></li>
+                            <li><a class="dropdown-item" href="#">2023</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Profit Margin End-->
+
+    <!--Profit margin-->
+    <div class="container">
+        <div class="row">
+            <table class="table table-hover text-nowrap">
+                <thead>
+                    <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Profite</th>
+                        <th scope="col">Profit Percentage</th>
+                        <th scope="col">Less Profit For previous month</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">January</th>
+                        <td>$1500</td>
+                        <td>
+                            <span class="text-success">
+                                <i class="fas fa-caret-up me-1"></i><span>14.0%</span>
+                            </span>
+                        </td>
+                        <td>$150</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">February</th>
+                        <td>
+                            $2500
+                        </td>
+                        <td>
+                            <span class="text-danger">
+                                <i class="fas fa-caret-down me-1"></i><span>-48.8%%</span>
+                            </span>
+                        </td>
+                        <td>$150</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">March</th>
+                        <td>
+                            $3500
+                        </td>
+                        <td>
+                            <span class="text-success">
+                                <i class="fas fa-caret-up me-1"></i><span>28</span>
+                            </span>
+                        </td>
+                        <td>$150</td>
+                        <td>2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--Profit margin End-->
+
+
+    <!--Footer Start-->
+    <div class="border-top">
+        <div class="container">
+            <div class="row">
+                <div class="info d-flex justify-content-between">
+                    <div class="version">
+                        <p class="m-0">Version : 0.01</p>
+                    </div>
+                    <div class="name">
+                        <p class="m-0">Design and developed by : Sajid</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer End-->
+
+
+
+    <!-- End your project here-->
+
+    <!--Chart js-->
+    <script>
+        const monthlyCtx = document.getElementById('monthlyChart');
+        const yearCtx = document.getElementById('yearChart');
+
+        new Chart(monthlyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: '# This Year Profit $',
+                    data: [550, 1119, 2000, 650, 350, 250, 3500, 4850, 7504, 785, 155, 1555],
+                    borderWidth: 1,
+                    backgroundColor: '#36A2EB', // corrected 'color' to 'backgroundColor'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            }
+        });
+
+        new Chart(yearCtx, {
+            type: 'line',
+            data: {
+                labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2023'],
+                datasets: [{
+                    label: '# Yearly Profit $',
+                    data: [550, 1119, 2000, 650, 350, 250, 3500, 4850, 7504, 785, 155, 1555],
+                    borderWidth: 2,
+                    backgroundColor: 'red',
+                    color: 'black'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            }
+        });
+    </script>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+</body>
+
+</html>
